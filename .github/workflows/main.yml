@@ -26,3 +26,6 @@ jobs:
 
       - name: Run tests
         run: pytest
+
+      - name: Deploy (simulated)
+        run : echo "Deploying to DEV"
