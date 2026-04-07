@@ -1,4 +1,4 @@
-name: My First Pipeline
+name: DevOps Pipeline
 
 on:
   push:
@@ -6,12 +6,23 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Run Python file
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install test tools
+        run: pip install pytest
+
+      - name: Run app
         run: python3 app.py
+
+      - name: Run tests
+        run: pytest
