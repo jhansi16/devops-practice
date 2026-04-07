@@ -27,5 +27,11 @@ jobs:
       - name: Run tests
         run: pytest
 
-      - name: Deploy (simulated)
-        run : echo "Deploying to DEV"
+      - name: Deploy to DEV
+        run: echo "Deploying to DEV environment"
+
+      - name: Deploy to TEST
+        run: echo "Deploying to TEST environment"
+
+      - name: Deploy to PROD
+        run: echo "Deploying to PROD environment"
